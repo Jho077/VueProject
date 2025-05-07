@@ -15,18 +15,19 @@ const props = defineProps({
 });
 
 const activities = ref(props.activity);
+const filteredActivities = ref(props.activity);
 
 const deleteActivity = (id) => {
     axios.delete(route('activities.destroy', id))
         .then(response => {
             activities.value = activities.value.filter(activity => activity.id !== id);
+            filteredActivities.value = filteredActivities.value.filter(activity => activity.id !== id);
         })
         .catch(error => {
             console.error('Error al eliminar la actividad:', error);
         });
 };
 
-const filteredActivities = ref(props.activity);
 
 const handleSearch = (query) => {
     if (!query) {
