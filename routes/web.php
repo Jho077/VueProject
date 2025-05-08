@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/activities/{id}/edit', [ActivityController::class, 'edit'])->name('activities.edit');
     Route::put('/activities/{id}', [ActivityController::class, 'update'])->name('activities.update');
     Route::delete('/activities/{id}', [ActivityController::class, 'destroy'])->name('activities.destroy');
-    
-    // Mantener esta ruta por compatibilidad
+    Route::get('/activities/{id}', [ActivityController::class, 'show'])->name('activities.show');
+
     Route::get('/actividad', [ActivityController::class, 'index'])->name('actividad.index');
 });
 

@@ -6,6 +6,8 @@ import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import SearchBar from '@/Components/SearchBar.vue';
 import { usePage } from '@inertiajs/vue3';
+import Footer from '@/Components/Footer.vue';
+
 
 // Obtener el usuario autenticado actual
 const user = usePage().props.auth.user;
@@ -65,9 +67,11 @@ const handleSearch = (query) => {
                     Eliminar
                 </button>
             </div>
-            <h3 class="font-bold">Nombre: {{ activity.name }}</h3>
-            <p class="font-bold">Descripcion: {{ activity.description }}</p>
-            <p class="font-bold">Creado por:  {{ activity.user.name }}</p>
+            <Link :href="route('activities.show', activity.id)" class="block cursor-pointer">
+                <h3 class="font-bold">Nombre: {{ activity.name }}</h3>
+                <p class="font-bold">Descripcion: {{ activity.description }}</p>
+                <p class="font-bold">Creado por:  {{ activity.user.name }}</p>
+            </Link>
         </div>
     </div>
     </AuthenticatedLayout>

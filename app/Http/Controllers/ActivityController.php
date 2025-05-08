@@ -16,6 +16,15 @@ class ActivityController extends Controller
             'activity' => $activity,
         ]);
     }
+    
+    public function show($id)
+    {
+        $activity = Activity::with('user')->findOrFail($id);
+        
+        return Inertia::render('ShowActividad', [
+            'activity' => $activity,
+        ]);
+    }
 
     public function create()
     {
