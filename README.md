@@ -92,5 +92,26 @@ const submit = () => {
 siteimprove accesibility checker
 
 
+Accesibilidad:
+<div class="grid gap-2">
+  <label for="category_id" class="text-sm font-medium text-gray-900">Categorías</label>
+  <select 
+    id="category_id" 
+    v-model="form.category_id" 
+    class="mt-1 block w-full border shadow-md border-gray-800 text-black" 
+    aria-label="Seleccionar una categoría"
+  >
+    <option disabled value="">Seleccione una categoría</option>
+    <option 
+      v-for="category in category" 
+      :key="category.id" 
+      :value="category.id"
+    >
+      {{ category.name }}
+    </option>
+  </select>
+</div>
+
+
 
 
