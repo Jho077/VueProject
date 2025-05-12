@@ -43,4 +43,54 @@ const aceptarCookies = () => {
 <style scoped>
 </style>
 
+validate:
+
+<template>
+  <form @submit.prevent="submit">
+    <input
+      v-model="password"
+      type="password"
+      required
+      @input="checkSpaces"
+    />
+    <span v-if="error" style="color: red;">{{ error }}</span>
+    <button type="submit">Enviar</button>
+  </form>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const password = ref('')
+const error = ref('')
+
+const checkSpaces = () => {
+  error.value = password.value.includes(' ')
+    ? 'La contrasenya no pot contenir espais.'
+    : ''
+}
+
+const submit = () => {
+  checkSpaces()
+  if (!error.value) {
+    // Aquí va tu lógica para enviar con Inertia, por ejemplo:
+    // router.post('/ruta', { password: password.value })
+    alert('Formulario enviado ✅')
+  }
+}
+</script>
+
+const submit = () => {
+  checkSpaces()
+  if (!error.value) {
+    // Aquí va la lógica para enviar el formulario, por ejemplo con Inertia:
+    // router.post('/ruta', { password: password.value })
+    alert('Formulario enviado ✅')
+  }
+}
+
+
+
+
+
 
