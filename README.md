@@ -20,3 +20,27 @@ en editAdvertisment:
                                 </select>
                             </div>
 Arreglar errores de rounded border label, ids
+
+
+las cookies:
+<script setup>
+import { ref } from 'vue';
+
+const mostrarCookies = ref(true);
+
+const aceptarCookies = () => {
+    mostrarCookies.value = false;
+};
+</script>
+
+<template>
+    <div v-if="mostrarCookies" class="cookies-container">
+        <p>Esta página utiliza cookies, aceptas?</p>
+        <button @click="aceptarCookies" class="bg-red-500 rounded w-20">Aceptar</button>
+    </div>
+</template>
+
+<style scoped>
+</style>
+
+
