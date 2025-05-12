@@ -92,7 +92,7 @@ const submit = () => {
 siteimprove accesibility checker
 
 
-Accesibilidad:
+Accesibilidad: edit
 <div class="grid gap-2">
   <label for="category_id" class="text-sm font-medium text-gray-900">Categorías</label>
   <select 
